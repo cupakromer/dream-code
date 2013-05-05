@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="extensions/status/deck.status.css">
   <link rel="stylesheet" href="extensions/hash/deck.hash.css">
   <link rel="stylesheet" href="extensions/scale/deck.scale.css">
+  <link rel="stylesheet" href="extensions/notes/deck.notes.css">
 
   <!-- Style theme. More available in /themes/style/ or create your own. -->
   <link rel="stylesheet" href="themes/style/web-2.0.css">
@@ -32,15 +33,56 @@
 <!-- Begin slides. Just make elements with a class of slide. -->
 
 <section class="slide">
-  <h1>Slide</h1>
+  <h1>Main Title Slide</h1>
 </section>
 
 <section class="slide">
-  <h1>Content</h1>
+  <h2>Sub Title Content</h2>
+  <p>With content</p>
 </section>
 
 <section class="slide">
-  <h1>Here</h1>
+  <h2>Here</h2>
+  <ul>
+    <li>Using a bullet list</li>
+    <li>For things</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Notes Extension</h2>
+  <p>To toggle notes press the "n" key.</p>
+  <div class="notes deck-notes">
+    This slide has speaker notes. Advance to the next slide now.
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Notes Extension Continued</h2>
+  <p>You should still see the notes.</p>
+  <div class="notes">
+    This slide also has speaker notes. Press "n" again to turn them off.
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Clone Extension</h2>
+  <p>
+    By pressing the "c" key, you'll receive a pop-up window with the
+    presentation. It will mirror the slide changes initiated by this base
+    window.
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Clone Extension Continued</h2>
+  <p>
+    If a slide has shown notes while using a clone, the notes only show on
+    the base window. Press "n" now to see.
+  </p>
+  <div class="notes">
+    These notes will only appear in the base window.
+  </div>
 </section>
 
 <!-- End slides. -->
@@ -85,6 +127,8 @@
 <script src="extensions/status/deck.status.js"></script>
 <script src="extensions/navigation/deck.navigation.js"></script>
 <script src="extensions/scale/deck.scale.js"></script>
+<script src="extensions/notes/deck.notes.js"></script>
+<script src="extensions/clone/deck.clone.js"></script>
 
 <!-- Initialize the deck. You can put this in an external file if desired. -->
 <script>
