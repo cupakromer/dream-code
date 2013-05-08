@@ -241,17 +241,47 @@
 </section>
 
 <section class="slide">
-  <h2>Just Say "NO!" to Pseudo Code</h2>
+  <h2>Bad Pseudo Code - Example</h2>
 
-  <img src="http://3.bp.blogspot.com/-fjhayWKkyT4/UI58MDh6OwI/AAAAAAAAAK8/5TaAelc8b3M/s400/269786_502862353073272_2137165014_n.jpg" alt="Don't think too much...you'll create a problem that wasn't even there in the first place.'" width="400" height="270">
+  <pre><code class="code"># For numbers 1 to 100
+  # If multiple of 3, print "Fizz"
+  # Else If multiple of 5, print "Buzz"
+  # If multiple of both, print "FizzBuzz"
+  # Print new line</code></pre>
+</section>
+
+<section class="slide">
+  <h2>Bad Pseudo Code - Now Modify It</h2>
+
+  <pre><code class="code"># For numbers 1 to 100
+  # If multiple of 3, print "Fizz"
+  # Else If multiple of 5, print "Buzz"
+  # Else If multiple of 7, print "Qux"
+  # Else If multiple of 3 and 5, print "FizzBuzz"
+  # Else If multiple of 3 and 7, print "FizzQux"
+  # Slams head into wall
+  # Don't forget to print the new line</code></pre>
+</section>
+
+<section class="slide">
+  <h2>This Was A Solution Online ಠ_ಠ</h2>
+
+  <pre><code class="code">for i in 1..100
+  if i % 15 == 0 then
+      print "FizzBuzz"
+  elsif i % 3 == 0 then
+      print "Fizz"
+  elsif i % 5 == 0 then
+      print "Buzz"
+  else
+      print i
+  end
+
+  print "\n"
+end</code></pre>
 
   <div class="notes">
-    <p>Tend to start well at a high level.</p>
-    <p>Then start thinking about details.</p>
-    <p>Then more details.</p>
-    <p>Then you fill in the comments.</p>
-    <p>And you get crap.</p>
-    <p>Then one of two things happens:</p>
+    <p>So what happens at this point?</p>
     <h3>next</h3>
   </div>
 </section>
@@ -269,7 +299,50 @@
 </section>
 
 <section class="slide">
-  <h2>Take a Cue From Other Language Devs</h2>
+  <h2>Just Say "NO!" to Pseudo Code</h2>
+
+  <img src="http://3.bp.blogspot.com/-fjhayWKkyT4/UI58MDh6OwI/AAAAAAAAAK8/5TaAelc8b3M/s400/269786_502862353073272_2137165014_n.jpg" alt="Don't think too much...you'll create a problem that wasn't even there in the first place.'" width="400" height="270">
+
+  <div class="notes">
+    <p>Tend to start well at a high level.</p>
+    <p>Then start thinking about details.</p>
+    <p>Then more details.</p>
+    <p>Then you fill in the comments.</p>
+    <p>And you get crap.</p>
+    <h3>next</h3>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Bad Pseudo Code - Another Example</h2>
+
+  <pre><code class="code"># Searches for query in a set of pages, every word
+# is searched independently, and then results of all
+# search operations are concatenated.
+
+# split query into separate words
+# for each word in the query
+    # get pages containing the word
+    # from the database
+
+    # for each page
+        # if this page is in the score table
+            # add current word occurrences on the
+            # page to the score table for given page
+        # if this page is not in the score table
+            # add the page to the score table
+            # and store current word occurrences for
+            # this page in the score table
+
+# create container for pages to return
+# for each page in the score table
+    # retrieve page info from database and store it
+    # in the container
+# return the container</code></pre>
+</section>
+
+<section class="slide">
+  <h2>Take a Cue From Other Language Devs</h3>
 
   <img src="http://speedyroby.files.wordpress.com/2010/07/java-net.jpg" alt="Java and dot Net logos" width="575" height="347">
 
@@ -301,6 +374,38 @@
     <p>The result will be based on your Ruby skill level.</p>
     <p>The Ruby community, generally, is always striving to be better. Use this to your advantage.</p>
   </div>
+</section>
+
+<section class="slide">
+  <h2>Just Write What You Want</h2>
+
+  <pre><code class="code">max = 100
+puts (1..max).map(:to_fizzbuzz)</code></pre>
+
+  <pre><code class="code"># lib/ext/fixnum.rb
+require "active_support/core_ext/object/blank"
+
+class Fixnum
+  def to_fizzbuzz
+    fizzbuzz_tags.join.presence || self
+  end
+
+  private
+  ALTS = { Fizz: 3, Buzz: 5, Qux: 6 }
+
+  def fizzbuzz_tags
+    ALTS.select{ |_, divisor| modulo(divisor).zero? }.keys
+  end
+end</code></pre>
+
+  <p>
+    <cite>
+      Adapted from
+      <a href="https://github.com/CodeFellowsOrg/FizzBuzz/blob/194df2aa3bda79295d25befb4ef0adf02be1852d/extensibly_fizzy.rb">extensibly_fizz.rb</a>
+      by
+      <a href="https://github.com/brookr">Brook Riggio</a>
+    </cite>
+  </p>
 </section>
 
 <section class="slide">
