@@ -1,4 +1,4 @@
-presentation_html = 'boilerplate.html'
+presentation_html = 'dream-code.html'
 
 use Rack::Static,
     urls: ["", "/extensions", "/themes", "/core"],
