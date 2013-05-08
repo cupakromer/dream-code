@@ -1,7 +1,7 @@
 presentation_html = 'dream-code.html'
 
 use Rack::Static,
-    urls: ["", "/extensions", "/themes", "/core"],
+    urls: ["", "/extensions", "/themes", "/core", "/imgs"],
     index: presentation_html
 
 run lambda { |env|
